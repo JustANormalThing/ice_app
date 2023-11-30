@@ -9,8 +9,8 @@ var database = client.db("ice_");
 database.dropDatabase()
 database = client.db("ice_");
 const cats = database.collection("ice_");
-const result = await cats.insertOne({name:"Лед"});
-console.log(`${result} documents were inserted`);
+const result = await cats.insertMany(data);
+console.log(`${result.insertedCount} documents were inserted`);
 } finally {
 await client.close();
 }
