@@ -8,8 +8,8 @@ await client.connect();
 var database = client.db("ice_");
 database.dropDatabase()
 database = client.db("ice_");
-const cats = database.collection("ice_");
-const result = await cats.insertMany(data);
+const ice_ = database.collection("ice_");
+const result = await ice_.insertMany(data);
 console.log(`${result.insertedCount} documents were inserted`);
 } finally {
 await client.close();

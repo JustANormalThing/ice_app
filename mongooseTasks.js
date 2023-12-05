@@ -1,17 +1,19 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/test');
+mongoose.connect('mongodb://localhost/test1');
+const ice_ = require("./models/ice_");
+const ice = new ice_({
+    title: "Лед",
+    nick: "Ice"
 
-const schema = mongoose.Schema({name: String});
-
-schema.methods.meow = function(){
-    console.log(this.get("name") + " Said Somthing")
-};
-    
-const Cat = mongoose.model('Ice_', schema);
-
-const kitty = new Cat({name: 'Zildjian' });
-kitty.save().then(() => console.log('meow'));
-kitty.meow();
-
-
+});
+  
+  console.log(ice);
+  
+ice.save()
+.then(function (result) {
+  console.log(result);
+})
+.catch(function (err, result) {
+  console.log(err);
+});
 
