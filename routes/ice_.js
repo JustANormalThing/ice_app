@@ -43,16 +43,16 @@ router.get('/ice2', function(req, res, next) {
     
   router.get("/:nick", async (req, res, next) => {   
       try {     
-        const ice_ = await 
+        const Ice = await 
     Ice.findOne({ nick: req.params.nick });     
-    console.log(ice_);     
-    if (!ice_) {       
+    console.log(Ice);     
+    if (!Ice) {       
       throw new Error("Нет такого льда");     
     }     
-    res.render('ice_', {       
-      title: ice_.title,       
-      picture: ice_.avatar,       
-      desc: ice_.desc     });   
+    res.render('ice', {       
+      title: Ice.title,       
+      picture: Ice.avatar,       
+      desc: Ice.desc});   
     } catch (err) {     
       next(err);   
     } 

@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/ice_');
 
 
-var indexRouter = require('./routes/index');
+//var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var iceRouter = require('./routes/ice_');
 
@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/ice', iceRouter);
 
@@ -46,7 +46,7 @@ app.use(function(err, req, res, next) {
   res.render('ice_',{
     title: "ice",
     picture: "",
-    desc: "Нет такого льда"
+    desc: ""
   })
 });
 
