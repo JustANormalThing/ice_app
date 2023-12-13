@@ -43,7 +43,11 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('ice_',{
+    title: "ice",
+    picture: "",
+    desc: "Нет такого льда"
+  })
 });
 
 module.exports = app;
