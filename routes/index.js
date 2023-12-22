@@ -7,11 +7,7 @@ router.get('/', async (req, res, next) => {
        try {
         
            const menu = await Ice_.find({}, { _id: 0, title: 1, nick: 1 }).exec();
-           
-           res.cookie('greeting', 'Hi!!!').render('index', { 
-            title:'Express', 
-            menu:menu 
-            });
+           req.session.greeting = "Hi!!!"
            res.render('index', {
                title: 'express',
                menu: menu
