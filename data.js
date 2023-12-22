@@ -6,16 +6,17 @@ var data = [{
     },
     
     {
-    title: 'Лед',
+    title: 'Лед_Кубик',
     nick: 'ice_cubes',
     avatar: '/images/ice_.png',
-    desc: 'Как мы видим на этой картинке лед..'
+    desc: 'Как мы видим на этой картинке лед, но в другой форме'
     },
     {
-    title: 'Лед',
+    title: 'Лед2',
     nick: 'ice2',
     avatar: '/images/ice2.png',
     desc: 'Как мы видим на этой картинке лед..'
     }
     ];
+    
     module.exports.data = data;

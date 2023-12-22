@@ -1,14 +1,18 @@
 var express = require('express')
 var router = express.Router()
-var ice_ = require("../models/ice_").ice_
+var Ice_ = require("../models/ice_").Ice_
+var async = require("async")
 /* GET home page. */
 router.get('/', async (req, res, next) => {
        try {
-           const menu = await ice_.find({}, { _id: 0, title: 1, nick: 1 }).exec();
+        
+           const menu = await Ice_.find({}, { _id: 0, title: 1, nick: 1 }).exec();
   
            res.render('index', {
-               title: 'Express',
+               title: 'express',
                menu: menu
+
+               
           });
       } catch (err) {
      next(err);
