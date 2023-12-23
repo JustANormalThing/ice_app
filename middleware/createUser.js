@@ -1,10 +1,15 @@
-//var User = require("./../models/user").User//
-//module.exports = function(req,res,next) {
-//res.locals.user = null
-//User.findById(req.session.user, function (err, user) {
-//if (err)
-//return next(err)
-//res.locals.user = user;
-//next();
-//})
-//}
+const User = require("../models/user").User;
+
+module.exports = async function(req, res, next) {
+  try {
+    const user = await User.findById(req.session.user).exec();
+    if (!user) {
+      res.locals.user = null;
+    } else {
+      res.locals.user = user;
+    }
+    next();
+  } catch (err) {
+    next(err);
+  }
+};

@@ -41,7 +41,7 @@ app.use(session({
     next()
     })
 app.use(require("./middleware/createMenu.js"))
-//app.use(require("./middleware/createUser.js"))
+app.use(require("./middleware/createUser.js"))
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/ice_', iceRouter);
