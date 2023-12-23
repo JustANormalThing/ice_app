@@ -6,11 +6,9 @@ var async = require("async")
 router.get('/', async (req, res, next) => {
        try {
         
-           const menu = await Ice_.find({}, { _id: 0, title: 1, nick: 1 }).exec();
            req.session.greeting = "Hi!!!"
            res.render('index', {
                title: 'express',
-               menu: menu,
                counter:req.session.counter
                
           });

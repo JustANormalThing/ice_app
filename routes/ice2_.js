@@ -18,7 +18,6 @@ router.get('/:nick', async function(req, res, next) {
       title: ice_.title,
       picture: ice_.avatar,
       desc: ice_.desc,
-      menu: ice2_
     });
   } catch (err) {
     next(err);
