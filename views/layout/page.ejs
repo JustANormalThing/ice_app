@@ -10,6 +10,15 @@
                
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
           <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-right">
+              <%if(user){%>
+                <form action="/logout" method="post">
+                  <li><button type="submit" class="btn btnlink">Выйти</button></li>
+                  </form>                  
+              <% } else { %>
+              <li><a href="/logreg">Войти</a></li>
+              <% } %>
+              </ul>              
             <ul class="navbar-nav">
               <% if(typeof nav == 'object' && nav){ nav.forEach(function(ice2_){
                 %>
@@ -19,9 +28,7 @@
                 </li>
                 <% })} %>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/logreg">Войти</a></li>
-                </ul>
+            
           </div>
         </nav>
         
