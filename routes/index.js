@@ -1,8 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var Ice_ = require("../models/ice_").Ice_
-var async = require("async")
-var User = require("./../models/user").User
+var User = require("../models/user").User
 /* GET home page. */
 router.get('/', async (req, res, next) => {
        try {
@@ -18,11 +17,11 @@ router.get('/', async (req, res, next) => {
      }
   });
 
-  router.get('/logreg', async function(req, res, next) {
+router.get('/logreg', async function(req, res, next) {
     res.render('logreg', { title: 'Вход',error:null}); 
   });
   
-  router.post('/logreg', async function(req, res, next) {
+router.post('/logreg', async function(req, res, next) {
     const username = req.body.username;
     const password = req.body.password;
     try {
@@ -46,7 +45,7 @@ router.get('/', async (req, res, next) => {
     }
   });
     
-  router.post('/logout', function(req, res, next) {
+router.post('/logout', function(req, res, next) {
     req.session.destroy()
     res.locals.user = null
     res.redirect('/')

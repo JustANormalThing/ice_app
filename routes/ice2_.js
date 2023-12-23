@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const Ice_ = require("../models/ice_").Ice_;
+var checkAuth = require("./../middleware/checkAuth.js")
+
 const async = require("async");
 
-router.get('/:nick', async function(req, res, next) {
+router.get('/:nick',checkAuth, async function(req, res, next) {
   try {
     const [ice_, ice2_] = await Promise.all([
       Ice_.findOne({ nick: req.params.nick }),

@@ -3,8 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require("express-session")
+var Ice_ = require("./models/ice_").Ice_
 mongoose.connect('mongodb://localhost/ice_');
 
 
@@ -40,6 +42,7 @@ app.use(session({
     req.session.counter = req.session.counter +1 || 1
     next()
     })
+    
 app.use(require("./middleware/createUser.js"))
 app.use(require("./middleware/createMenu.js"))
 app.use('/', indexRouter);
@@ -60,7 +63,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error', {title: 'Error', message: err.message, error: err});
+  res.render('error', {title:"Неут льда"});
 });
 
 
