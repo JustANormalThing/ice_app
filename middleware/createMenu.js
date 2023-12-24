@@ -1,12 +1,10 @@
-const Ice_ = require("./../models/ice_").Ice_;
+const db = require('./../mySQLConnect'); // assuming MySQL database connection
 
-module.exports = async function(req, res, next) {
-  try {
+module.exports = function(req, res, next) {
     res.locals.nav = [];
-    const result = await Ice_.find(null, { _id: 0, title: 1, nick: 1 });
-    res.locals.nav = result;
-    next();
-  } catch (err) {
-    throw err;
-  }
+    db.query('SELECT title, nick FROM ices', function(err, result) {
+        if (err) throw err;
+        res.locals.nav = result;
+        next();
+    });
 };
