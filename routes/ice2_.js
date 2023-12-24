@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 //const Ice_ = require("../models/ice_").Ice_;
-//var checkAuth = require("./../middleware/checkAuth.js")
+var checkAuth = require("./../middleware/checkAuth.js")
 var db = require('../mySQLConnect.js');
 
 const async = require("async");
 
 
-router.get("/:nick", function(req, res, next) {
+router.get("/:nick", checkAuth, function(req, res, next) {
   db.query(`SELECT * FROM ices WHERE ices.nick = '${req.params.nick}'`, (err,ices) => {
   if(err) {
     console.log(err);
